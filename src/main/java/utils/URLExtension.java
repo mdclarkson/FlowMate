@@ -26,10 +26,10 @@ public class URLExtension {
         int port = url.getPort();
 
         var printPort = true;
-        if(proto.equals("http") && port == 80){
+        if("http".equals(proto) && port == 80){
             printPort = false;
         }
-        else if(proto.equals("https") && port == 443){
+        else if("https".equals(proto) && port == 443){
             printPort = false;
         } else if(port == -1) {
             printPort = false;

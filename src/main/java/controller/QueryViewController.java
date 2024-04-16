@@ -108,7 +108,7 @@ public class QueryViewController implements ActionListener, ListSelectionListene
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource().equals(view.sortByLabel)) { // Change text on click for Ascending/Descending order
-            if (view.sortByLabel.getText().equals("Desc ↓")) {
+            if ("Desc ↓".equals(view.sortByLabel.getText())) {
                 view.sortByLabel.setText("Asc ↑");
                 filterParameterList();
             } else {
@@ -199,14 +199,14 @@ public class QueryViewController implements ActionListener, ListSelectionListene
         Comparator<ParameterContainer> comparator = null;
         switch (model.getSelectedText()) {
             case "Name" -> {
-                if (view.sortByLabel.getText().equals("Desc ↓")) {
+                if ("Desc ↓".equals(view.sortByLabel.getText())) {
                     comparator = Comparator.comparing(ParameterContainer::getName);
                 } else {
                     comparator = Comparator.comparing(ParameterContainer::getName).reversed();
                 }
             }
             case "Type" -> {
-                if (view.sortByLabel.getText().equals("Desc ↓")) {
+                if ("Desc ↓".equals(view.sortByLabel.getText())) {
                     comparator = Comparator.comparing(ParameterContainer::getType);
                 } else {
                     comparator = Comparator.comparing(ParameterContainer::getType).reversed();
@@ -214,14 +214,14 @@ public class QueryViewController implements ActionListener, ListSelectionListene
             }
             // Numbers get sorted differently so reversed needs to be the first case
             case "Number of Occurrences" -> {
-                if (view.sortByLabel.getText().equals("Desc ↓")) {
+                if ("Desc ↓".equals(view.sortByLabel.getText())) {
                     comparator = Comparator.comparing(ParameterContainer::getOccurrences).reversed();
                 } else {
                     comparator = Comparator.comparing(ParameterContainer::getOccurrences);
                 }
             }
             case "Number of Matches" -> {
-                if (view.sortByLabel.getText().equals("Desc ↓")) {
+                if ("Desc ↓".equals(view.sortByLabel.getText())) {
                     comparator = Comparator.comparing(ParameterContainer::getMatches).reversed();
                 } else {
                     comparator = Comparator.comparing(ParameterContainer::getMatches);

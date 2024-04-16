@@ -20,8 +20,8 @@ public class CrossSessionAudit {
     public void performAudit(ParameterMatch match, String sessionName, MatchHelperClass matchHelper){
         var inputValueSession = match.getInputValue().getSession();
 
-        if(sessionName == null || sessionName.equals("not set")
-           || inputValueSession == null || inputValueSession.equals("not set")
+        if(sessionName == null || "not set".equals(sessionName)
+           || inputValueSession == null || "not set".equals(inputValueSession)
            || inputValueSession.equals(sessionName) ){
             return;
         }

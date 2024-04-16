@@ -68,10 +68,10 @@ public class HttpResponseParser {
         var matches = new Vector<MatchHelperClass>();
         IParser usedParser;
 
-        if(resp.ContentType.equals("HTML")){
+        if("HTML".equals(resp.ContentType)){
             usedParser = this.htmlParser;
         }
-        else if(resp.ContentType.equals("JSON")){
+        else if("JSON".equals(resp.ContentType)){
             usedParser = this.jsonParser;
         }
         else{
