@@ -5,6 +5,8 @@ import burp.api.montoya.http.handler.HttpResponseReceived;
 import burp.api.montoya.http.message.requests.HttpRequest;
 import db.MatchHelperClass;
 import db.entities.InputParameter;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import utils.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -90,7 +92,7 @@ public class HttpResponseParser {
 
     private URL stringToURL(String urlString) {
         try {
-            return new URL(urlString);
+            return Urls.create(urlString, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         } catch (MalformedURLException e) {
             Logger.getInstance().logToError("[HttpRequestParser] invalid URL String was given to create URL object");
         }
