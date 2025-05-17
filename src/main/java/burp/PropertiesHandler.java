@@ -1,6 +1,7 @@
 package burp;
 
 import burp.api.montoya.MontoyaApi;
+import java.security.SecureRandom;
 import utils.FileSystemUtil;
 import utils.Logger;
 
@@ -27,7 +28,7 @@ public class PropertiesHandler {
         // extensionData().getString("IsRightState"); returns null if the key doesn't exist
         String savedKey = this.api.persistence().extensionData().getString("IsRightState");
         File propertiesFile = FileSystemUtil.PROPERTIES_PATH;
-        long randomLong = new Random().nextLong();
+        long randomLong = new SecureRandom().nextLong();
         String hashed = String.valueOf(Objects.hash(randomLong));
         // If the proxy history is empty, it can be assumed that it's a new project, therefore save key in burp state
         // and properties file
